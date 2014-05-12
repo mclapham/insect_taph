@@ -5,7 +5,7 @@
 #orth_occs (Orthoptera), hem_occs (Hemiptera), dip_occs (Diptera)
 
 #Reads insect occurrences
-occs_raw<-read.csv("https://github.com/mclapham/insect_taph/blob/master/insect_occs.csv?raw=true")
+occs_raw<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_files/insect_occs.csv?raw=true")
 
 #Filters occurrences assigned to 10 Myr bin
 occs_time<-subset(occs_raw,occs_raw$X10_my_bin!="")
@@ -17,7 +17,7 @@ occs_body<-subset(occs_time,occs_time$type_body_part %in% c("wing","forewing","h
 occs_holo<-subset(occs_body,occs_body$occurrence.species_reso=="n. sp.")
 
 #Reads size data file
-sizes<-read.csv("https://github.com/mclapham/insect_taph/blob/master/insect_size.csv?raw=true")
+sizes<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_files/insect_size.csv?raw=true")
 
 #Filters occurrences with measured wing element
 occs_size<-subset(occs_holo,occs_holo$occurrence_no %in% sizes$occurrence_no)
@@ -34,7 +34,7 @@ for (i in 1:nrow(occs_size)) {
 occs_size$log_length<-log10(occs_size$length)
 
 #Reads environment matching file
-env_match<-read.csv("https://github.com/mclapham/insect_taph/blob/master/env_match.csv?raw=true")
+env_match<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_files/env_match.csv?raw=true")
 
 #Extracts occurrences with good environments
 occs_env<-subset(occs_size,occs_size$environment %in% env_match$specific_env)
