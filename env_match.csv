@@ -1,0 +1,43 @@
+specific_env,broad_env
+"""channel""",HE terrestrial
+"""floodplain""",HE terrestrial
+alluvial fan,HE terrestrial
+basinal (carbonate),marine
+basinal (siliceous),marine
+basinal (siliciclastic),marine
+carbonate indet.,marine
+coarse channel fill,HE terrestrial
+coastal indet.,marine
+crater lake,deep lake
+deep subtidal indet.,marine
+deep subtidal ramp,marine
+deep subtidal shelf,marine
+deep-water indet.,marine
+delta front,marine
+delta plain,delta_coastal
+dry floodplain,HE terrestrial
+estuary/bay,delta_coastal
+fine channel fill,HE terrestrial
+fluvial indet.,HE terrestrial
+interdistributary bay,delta_coastal
+lacustrine - large,deep lake
+lacustrine - small,pond
+lagoonal,delta_coastal
+lagoonal/restricted shallow subtidal,delta_coastal
+marginal marine indet.,delta_coastal
+marine indet.,marine
+mire/swamp,pond
+offshore,marine
+offshore indet.,marine
+offshore ramp,marine
+offshore shelf,marine
+open shallow subtidal,marine
+paralic indet.,delta_coastal
+pond,pond
+prodelta,marine
+shallow subtidal indet.,marine
+shoreface,marine
+slope,marine
+submarine fan,marine
+transition zone/lower shoreface,marine
+wet floodplain,HE terrestrial
