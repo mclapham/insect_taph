@@ -5,6 +5,8 @@ Data files and R scripts for data processing and figures for Karr and Clapham (2
 
 Run script data_acq.R first to acquire data and filter based on criteria described in paper.
 
-fig1_plot.R: calculates proportion of articulated specimens per time interval and plots figure 1
+1) fig1_plot.R: calculates proportion of articulated specimens per time interval and plots figure 1
+ 
+2) glm_orders_env.R: performs logistic regression models (articulation as a function of age and age+environment) for six suprafamilial groups; plots figure 2
 
-glm_orders_env.R: performs logistic regression models (articulation as a function of age, and age+environment) for six suprafamilial groups; plots figure 2
+3) glm_all_env.R: performs logistic regression models (articulation as a function of age and age+environment) for all insects; plots figure e
