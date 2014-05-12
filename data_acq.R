@@ -67,16 +67,6 @@ occs_env$type_part_binom<-ifelse(occs_env$type_body_part=="exoskeleton",1,0)
 #Adds binomial column for environment (1=deep lake, 0=non-deep lake)
 occs_env$env_binom<-ifelse(occs_env$broad_env=="deep lake",1,0)
 
-
-#read valid insect species names
-ins_names<-read.csv("http://paleobiodb.org/data1.1/taxa/list.txt?name=Insecta&rel=all_children&status=senior&rank=species&show=attr&limit=999999")
-
-#extracts publication years
-ins_names$pubyr<-gsub("[^0-9]","",ins_names$attribution)
-
-#add publication years to occurrences
-occs_env$pubyr<-apply(occs_env,1,function(x) ins_names$pubyr[which(ins_names$taxon_name==paste(x[5],x[7]))])
-
 #Creates data files for suprafamilial groups
 col_occs<-subset(occs_env,occs_env$occurrence_no %in% coleop$occurrence_no)
 odon_occs<-subset(occs_env,occs_env$occurrence_no %in% odonat$occurrence_no)
