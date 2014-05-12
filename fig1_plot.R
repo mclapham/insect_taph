@@ -1,6 +1,6 @@
 #Script to generate figure 1
 #Run data acquisition and filtering (data_acq.R) first!
-#Calculates proportion of articulated specimens in each "10 Myr bin"
+#Calculates proportion of articulated specimens in each "10 Myr bin" (output in bin_art)
 #plots articulation proportion over time, adding geological timescale
 #plot is saved as a pdf (fig1.pdf) in your working directory (e.g., getwd())
 
@@ -13,12 +13,13 @@ periods<-subset(time_ints,time_ints$level==3 & time_ints$early_age<360)
 #function to calculate proportion of articulated specimens 
 ratio.function<-function(x) length(subset(x,x=="exoskeleton"))/length(x)
 
-#Gives ratios for each 10 Mil Bin
+#calculates proprtion of articulated specimens (exoskeletons) in  each 10 Myr Bin
 bin_art<-sapply(split(occs_env$type_body_part,occs_env$age_myr),ratio.function)
 
-#Gives specimen counts for each 10 Mil Bin
+#counts number of specimens in each 10 Mil Bin
 bin_ct<-sapply(split(occs_env$type_body_part,occs_env$age_myr),length)
 
+#plots figure
 pdf("fig1.pdf",width=9)
 
 #CEX is 10*(X/(X+500))
