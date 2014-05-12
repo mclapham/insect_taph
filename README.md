@@ -7,6 +7,8 @@ Run script data_acq.R first to acquire data and filter based on criteria describ
 
 1) fig1_plot.R: calculates proportion of articulated specimens per time interval and plots figure 1
  
-2) glm_orders_env.R: performs logistic regression models (articulation as a function of age and age+environment) for six suprafamilial groups; plots figure 2
+2) glm_all_env.R: performs logistic regression models (articulation as a function of age and age+environment) for all insects; plots figure 3
 
-3) glm_all_env.R: performs logistic regression models (articulation as a function of age and age+environment) for all insects; plots figure e
+3) glm_all_size.R: performs logistic regression model (articulation as a function of log10 wing element length) for all insects; plots figure 4
+
+4) glm_orders_env.R: performs logistic regression models (articulation as a function of age and age+environment) for six suprafamilial groups; plots figure 2
