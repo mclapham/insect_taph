@@ -15,6 +15,8 @@ IMPORTANT: Run data_acq.R script first to acquire data and filter based on crite
 
 5) glm_all_size.R: performs logistic regression model (articulation as a function of log10 wing element length) for all insects; plots figure 4
 
-6) glm_orders_env.R: performs logistic regression models (articulation as a function of age and age+environment) for six suprafamilil groups; plots figure 2
+6) glm_coleo_pubyr.R: performs logistic regression models (articulation as a function of age and age+environment) for all beetles and only for species named after 1950; plots figure 8
 
-7) glm_orders_size.R: performs logistic regression model (articulation as a function of log10 wing element length) for six suprafamilial groups; plots figure 5
+7) glm_orders_env.R: performs logistic regression models (articulation as a function of age and age+environment) for six suprafamilil groups; plots figure 2
+
+8) glm_orders_size.R: performs logistic regression model (articulation as a function of log10 wing element length) for six suprafamilial groups; plots figure 5
