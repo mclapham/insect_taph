@@ -13,4 +13,4 @@ Run script data_acq.R first to acquire data and filter based on criteria describ
 
 4) glm_orders_env.R: performs logistic regression models (articulation as a function of age and age+environment) for six suprafamilial groups; plots figure 2
 
-5) glm_orders_env.R: performs logistic regression model (articulation as a function of log10 wing element length) for six suprafamilial groups; plots figure 5
+5) glm_orders_size.R: performs logistic regression model (articulation as a function of log10 wing element length) for six suprafamilial groups; plots figure 5
