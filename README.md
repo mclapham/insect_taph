@@ -5,7 +5,7 @@ Data files and R scripts for data processing and figures for Karr and Clapham (2
 
 IMPORTANT: Run data_acq.R script first to acquire data and filter based on criteria described in paper.
 
-1) act_prd_comparison.R: compares actual proportion articulated against predicted articulation based only on the environment, mean size, and proportion of beetles in each 10 Myr bin. Plots figure 7.
+1) act_prd_comparison.R: compares actual proportion articulated against predicted articulation based only on the environment, mean size, and proportion of beetles in each 10 Myr bin; plots figure 7.
 
 2) environ_count.R: calculates proportion of occurrences per paleoenvironment group for each suprafamilial clade; data for table 3
 
