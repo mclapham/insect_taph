@@ -16,7 +16,7 @@ pdf("fig9.pdf",width=7,height=5)
 par(mar=c(5,3,1,5))
 
 #Plots all insects with logistic regression fits
-plot(occs_env$pubyr,jitter(occs_env$type_part_binom,.2),yaxt="n", ylab='', xlab="Age (Ma)",main="",col='dark grey')
+plot(occs_env$pubyr,jitter(occs_env$type_part_binom,.2),yaxt="n", ylab='', xlab="Publication year",main="",col='dark grey')
 axis(2, at=c(0,1),label=c("Non-Articulated","Articulated"), tick=T)
 axis(4,at=seq(0,1,0.2))
 mtext("Modeled articulation proportion",side=4,line=2.5)
