@@ -3,6 +3,8 @@ Scripts for Insect Taphonomy
 
 Data files and R scripts for data processing and figures for Karr and Clapham (2014) insect taphonomy paper.
 
+Data acquisition uses real-time taxonomy data from Paleobiodb data services so some clade-specific results may vary slightly.
+
 IMPORTANT: Run data_acq.R script first to acquire data and filter based on criteria described in paper.
 
 1) act_prd_comparison.R: compares actual proportion articulated against predicted articulation based only on the environment, mean size, and proportion of beetles in each 10 Myr bin; plots figure 7.
