@@ -40,7 +40,7 @@ env_match<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_fi
 occs_env<-subset(occs_size,occs_size$environment %in% env_match$specific_env)
 
 #Matches specific PBDB environment with broader categories
-occs_env$broad_env<-apply(occs_env,1,function(x) env_match$broad_env[which(env_match$specific_env==x[17])])
+occs_env$broad_env<-env_match$broad_env[match(occs_env$environment,env_match$specific_env)]
 
 #Age midpoints of 10 Myr bins
 bin_midpts<-c(327.1,312.5,302.9,60.6, 48.1, 37.1, 28.5,17.3,5.8, 140.9, 130.9, 118.7,105.8, 96.5, 88.5, 77,68, 195.6, 186.3, 177.3, 168.1, 157.8, 148.2, 294.5, 281.3, 265.8, 255.7, 249.8, 241.1, 228.2, 211.6)
@@ -48,7 +48,7 @@ bin_midpts<-c(327.1,312.5,302.9,60.6, 48.1, 37.1, 28.5,17.3,5.8, 140.9, 130.9, 1
 names(bin_midpts)<-c("Carboniferous 3","Carboniferous 4","Carboniferous 5","Cenozoic 1","Cenozoic 2","Cenozoic 3","Cenozoic 4","Cenozoic 5","Cenozoic 6","Cretaceous 1","Cretaceous 2","Cretaceous 3","Cretaceous 4","Cretaceous 5","Cretaceous 6","Cretaceous 7","Cretaceous 8","Jurassic 1","Jurassic 2","Jurassic 3","Jurassic 4","Jurassic 5","Jurassic 6","Permian 1","Permian 2","Permian 3","Permian 4","Triassic 1","Triassic 2","Triassic 3","Triassic 4")
 
 #Adds age in Myr to each occurrence
-occs_env$age_myr<-apply(occs_env,1,function(x) bin_midpts[which(names(bin_midpts)==x[16])])
+occs_env$age_myr<-bin_midpts[match(occs_env$X10_my_bin,names(bin_midpts))]
 
 #Reads occurrences of Coleoptera, Odonatoptera, Blattodea (excluding termites), Orthoptera, Hemiptera, Diptera
 coleop<-read.csv("http://www.paleobiodb.org/data1.1/occs/list.txt?base_name=Coleoptera&limit=9999999")
