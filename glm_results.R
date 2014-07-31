@@ -1,5 +1,3 @@
-#Run data_acq.R first!
-
 #CALCULATES LOGISTIC REGRESSION FITS FOR ALL-INSECT DATASET
 #three parameter model
 all_param_glm<-glm(type_part_binom~log_length+env_binom+is_beetle,family="binomial",data=occs_env)
@@ -14,7 +12,7 @@ morph_glm<-glm(type_part_binom~is_beetle,family="binomial",data=occs_env) #morph
 
 #AIC values for each logistic regression model
 aic_values<-rbind("all"=summary(all_param_glm)$aic,"size+env"=summary(size_env_glm)$aic,"morph+env"=summary(morph_env_glm)$aic,"morph+size"=summary(morph_size_glm)$aic,
-           "env"=summary(env_glm)$aic,"size"=summary(size_glm)$aic,"morph"=summary(morph_glm)$aic)
+                  "env"=summary(env_glm)$aic,"size"=summary(size_glm)$aic,"morph"=summary(morph_glm)$aic)
 
 #orders AIC values from smallest to largest
 aic_values<-aic_values[order(aic_values),]
@@ -23,7 +21,7 @@ aic_values<-aic_values[order(aic_values),]
 delta_aic<-aic_values-aic_values[1]
 
 #Table 1: model comparison using AIC values
-data.frame(aic_values,delta_aic)
+table1<-data.frame(aic_values,delta_aic)
 
 #CALCULATES LOGISTIC REGRESSION FOR SIX SUPRAFAMILIAL GROUPS
 odon_glm<-glm(type_part_binom~log_length+env_binom,family="binomial",data=odon_occs) #Odonatoptera
@@ -58,6 +56,10 @@ glm.summary<-function(glm_res) {
 }
 
 #combines glm results into table (Table 2)
-glm_results<-t(data.frame(glm.summary(all_param_glm),glm.summary(odon_glm),glm.summary(blatt_glm),glm.summary(orth_glm),glm.summary(hem_glm),glm.summary(dip_glm),glm.summary(coleo_glm)))
-rownames(glm_results)<-c("Insecta","Odonatoptera","Blattodea","Orthoptera","Hemiptera","Diptera","Coleoptera")
-colnames(glm_results)<-c("size odds-ratio","size 2.5% CI","size 97.5% CI","size p-value","env odds-ratio","env 2.5% CI","env 97.5% CI","env p-value","morph odds-ratio","morph 2.5% CI","morph 97.5% CI","morph p-value")
+table2<-t(data.frame(glm.summary(all_param_glm),glm.summary(odon_glm),glm.summary(blatt_glm),glm.summary(orth_glm),glm.summary(hem_glm),glm.summary(dip_glm),glm.summary(coleo_glm)))
+rownames(table2)<-c("Insecta","Odonatoptera","Blattodea","Orthoptera","Hemiptera","Diptera","Coleoptera")
+colnames(table2)<-c("size odds-ratio","size 2.5% CI","size 97.5% CI","size p-value","env odds-ratio","env 2.5% CI","env 97.5% CI","env p-value","morph odds-ratio","morph 2.5% CI","morph 97.5% CI","morph p-value")
+
+table1
+
+table2
