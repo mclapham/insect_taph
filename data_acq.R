@@ -4,8 +4,11 @@
 #col_occs (Coleoptera), odon_occs (Odonatoptera), blatt_occs (Blattodea excluding termites),
 #orth_occs (Orthoptera), hem_occs (Hemiptera), dip_occs (Diptera)
 
+#REQUIRES
+#RCurl package
+
 #Reads insect occurrences
-occs_raw<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_files/insect_occs.csv?raw=true")
+occs_raw<-read.csv("http://datadryad.org/bitstream/handle/10255/dryad.67391/insect_occs.csv")
 
 #Filters occurrences assigned to 10 Myr bin
 occs_time<-subset(occs_raw,occs_raw$X10_my_bin!="")
@@ -17,7 +20,7 @@ occs_body<-subset(occs_time,occs_time$type_body_part %in% c("wing","forewing","h
 occs_holo<-subset(occs_body,occs_body$occurrence.species_reso=="n. sp.")
 
 #Reads size data file
-sizes<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_files/insect_size.csv?raw=true")
+sizes<-read.csv("http://datadryad.org/bitstream/handle/10255/dryad.67391/insect_size.csv")
 
 #Filters occurrences with measured wing element
 occs_size<-subset(occs_holo,occs_holo$occurrence_no %in% sizes$occurrence_no)
@@ -33,8 +36,10 @@ for (i in 1:nrow(occs_size)) {
 #Adds log10 sizes to occurrences
 occs_size$log_length<-log10(occs_size$length)
 
+library(RCurl)
 #Reads environment matching file
-env_match<-read.csv("https://github.com/mclapham/insect_taph/blob/master/data_files/env_match.csv?raw=true")
+env_url<-getURL("raw.githubusercontent.com/mclapham/insect_taph/master/data_files/env_match.csv",ssl.verifypeer = FALSE)
+env_match<-read.csv(text=env_url)
 
 #Extracts occurrences with good environments
 occs_env<-subset(occs_size,occs_size$environment %in% env_match$specific_env)
